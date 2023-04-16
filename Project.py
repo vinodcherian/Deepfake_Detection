@@ -39,16 +39,13 @@ HEADER_STYLE=f"""<style>
 
 HOMEPAGE_CONTENT='''
 #####  This project is initiated by the Münich, Germany Chapter to solve Real World Problems.
-
 ### The Problem
 Deepfake generators have been able to produce imitations almost undetectable through human inspection. Per se, Deepfake detection is one of the notable challenges of digital forensics and media security. They can be used for:
 + Spreading false information and manipulating public opinion.
 + Defaming, harassing, or blackmailing individuals.
 + Damaging the credibility of media information and undermining trust.
 + Spreading fake news, making political propaganda, and manipulating elections.
-
 An artificial intelligence (AI) solution can help identify Deepfake images with accuracy and precision.
-
 ### The Goals
 The goal of this project is to develop a deep learning model for detecting forgeries in images. 
 + Develop an accurate and reliable deep learning model that can detect deepfake images with **high precision** and **recall**. 
@@ -64,10 +61,10 @@ HOMEPAGE_ACTIVE_MEMBERS='''
 | Task Name | Active Members |
 |--|--|
 | Data Collection | abc, xyz |
-| Data-Preprocessing and Cleaning | Rishabh Sabharwal, Imane, Akash Kundu, Saurav Suman, Abdul Rahman, Abdelrahman Katkat, Abdelrahman Rabah |
+| Data-Preprocessing and Cleaning | Rishabh Sabharwal, Imane E. M., Akash Kundu, Saurav Suman, Abdul Rahman, Abdelrahman Katkat, Abdelrahman Rabah |
 | Feature Extraction | - |
-| Model Training | - |
-| Model Testing and Validation | Akash Kundu, Reem Abdel-Salam, Parnika Damle, Abdelrahman Katkat, Qutaiba Ansari |
+| Model Training | Vishu Kalier, Imane E. M., Mussie Berhane, Abdelrahman Youssry, Reem Abdel-Salam, Parnika Damle, Qutaiba Ahmed Ansari, Akash Kundu, Abdul Rahman, Rishabh Sabharwal |
+| Model Testing and Validation | Akash Kundu, Reem Abdel-Salam, Parnika Damle, Abdelrahman Katkat, Qutaiba Ahmed Ansari |
 | Model Deployment | - |
 '''
 
