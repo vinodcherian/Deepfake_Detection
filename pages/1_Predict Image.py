@@ -93,3 +93,5 @@ if image_file is not None:
     #st.info(f"### The uploaded image is Probably {predicted_labels['label']} with a model confidence: {round(((1-float(predicted_labels['percentage']))*100),2)} %.")
     st.info(f"### The model is {round(((1-float(predicted_labels['percentage']))*100),2)}% sure that the image is {predicted_labels['label']}")
     st.info(f"### The model is {float(predicted_labels['percentage'])}% sure that the image is {predicted_labels['label']}")
+    st.info(f"### (Decimal/0.5)*100 for deepfake {((float(predicted_labels['percentage'])/0.5)*100)}")
+    st.info(f"### (decimal-0.5/0.5)*100 for real {((float(predicted_labels['percentage'])-1)*100)}")
