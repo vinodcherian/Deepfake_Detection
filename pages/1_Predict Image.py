@@ -38,11 +38,15 @@ def imagepreprocessing(image):
     return images_to_predict
 
 def modelpredict(model, model_labels, upload_image):
+    predicted_result = dict();
     predicted_labels = model.predict(upload_image)
+    predicted_result['percentage'] = predicted_labels.flatten()[0]
     predicted_labels[predicted_labels<0.5]=0
     predicted_labels[predicted_labels>=0.5]=1
+    predicted_result['label'] = model_labels[int(predicted_labels.flatten()[0])]
     #return str(ModelLabelList[int(predicted_labels.flatten()[0])]) + ' as ' + str(predicted_labels.flatten())
-    return str(ModelLabelList[int(predicted_labels.flatten()[0])])
+    #return str(ModelLabelList[int(predicted_labels.flatten()[0])])
+    return predicted_result
 
 @st.cache_resource
 def get_model(path):
@@ -85,4 +89,5 @@ if image_file is not None:
     img_arr = np.array(imageobj) 
     image_np_array =imagepreprocessing(img_arr)
     predicted_labels = modelpredict(model, ModelLabelList, image_np_array)
-    st.info(f"### The uploaded image is probably {predicted_labels}.")
+    #st.info(f"### The uploaded image is probably {predicted_labels}.")
+    st.info(f"### The uploaded image is Probably {predicted_labels['label']} with a model confidence: {round(((1-float(predicted_labels['percentage']))*100),2)} %.")
