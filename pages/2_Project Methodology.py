@@ -134,6 +134,7 @@ After completion of the model training, we conducted validation and testing of t
 |Deepfake||0.92|0.81|0.86||
 |Real||0.63|0.82|0.71||
 
+
 ### Final Model Evaluation Matrix
 
 -   Based on the table above, MobileNetV3 was chosen to be deployed.
