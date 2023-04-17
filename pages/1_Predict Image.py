@@ -44,10 +44,10 @@ def modelpredict(model, model_labels, upload_image):
     predicted_labels[predicted_labels<0.5]=0
     predicted_labels[predicted_labels>=0.5]=1
     predicted_result['label'] = model_labels[int(predicted_labels.flatten()[0])]
-    if int(predicted_labels['label'])==0:
-        predicted_labels['percentage']=round(((1-float(predicted_result_percentage))*100),2)
-    if int(predicted_labels['label'])==1:
-        predicted_labels['percentage']=round(((float(predicted_result_percentage))*100),2)
+    if int(predicted_labels.flatten()[0])==0:
+        predicted_result['percentage']=round(((1-float(predicted_result_percentage))*100),2)
+    if int(predicted_labels.flatten()[0])==1:
+        predicted_result['percentage']=round(((float(predicted_result_percentage))*100),2)
     #return str(ModelLabelList[int(predicted_labels.flatten()[0])]) + ' as ' + str(predicted_labels.flatten())
     #return str(ModelLabelList[int(predicted_labels.flatten()[0])])
     return predicted_result
