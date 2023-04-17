@@ -91,16 +91,16 @@ The code, implementation and accuracy of every contributor is available on githu
 |-|-|-|
 | Vishu Kalier | esrgan-tf2  | 83 % |
 | Mussie Berhane | CNN AlexNet | 85% |
-| Abdelrahman Youssry| EfficientNetB5 & ImageNet|  90% |
 | Rishabh Sabharwal | Dense CNN | 91.78% |
 | Akash Kundu | MogaNetXtiny  | 85.8% |
 | Abdul Rahman | DenseNet-264 | 50% |
 | Qutaiba Ahmed Ansari | ResNet  | 92% |
-| Reem Abdel-Salam | CNN MobilnetV3-ImageNet  | 89% |
 | Parnika Damle | volo(VOLO_d2)-ImageNet   | 96.52% |
+| Reem Abdel-Salam | CNN MobilnetV3-ImageNet  | 89% |
 | Reem Abdel-Salam | CNN ConvnextTiny-ImageNet  | 97% |
 | Abdelrahman Rabah | VGG19_BN   | 80%  |
-|  Abdelrahman Youssry| EfficientNetB7 & ImageNet| 92.5% |
+| Abdelrahman Youssry | EfficientNetB5 & ImageNet |  90% |
+| Abdelrahman Youssry | EfficientNetB7 & ImageNet | 92.5% |
 | Abdelrahman Youssry| VGG16 & ImageNet|93.5% |
 
 
