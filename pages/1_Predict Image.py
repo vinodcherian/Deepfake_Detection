@@ -40,10 +40,14 @@ def imagepreprocessing(image):
 def modelpredict(model, model_labels, upload_image):
     predicted_result = dict();
     predicted_labels = model.predict(upload_image)
-    predicted_result['percentage'] = predicted_labels.flatten()[0]
+    predicted_result_percentage = predicted_labels.flatten()[0]
     predicted_labels[predicted_labels<0.5]=0
     predicted_labels[predicted_labels>=0.5]=1
     predicted_result['label'] = model_labels[int(predicted_labels.flatten()[0])]
+    if predicted_labels['label']==0:
+        predicted_labels['percentage']=round(((1-float(predicted_result_percentage))*100),2)
+    if predicted_labels['label']==1:
+        predicted_labels['percentage']=round(((float(predicted_result_percentage))*100),2)
     #return str(ModelLabelList[int(predicted_labels.flatten()[0])]) + ' as ' + str(predicted_labels.flatten())
     #return str(ModelLabelList[int(predicted_labels.flatten()[0])])
     return predicted_result
@@ -91,7 +95,7 @@ if image_file is not None:
     predicted_labels = modelpredict(model, ModelLabelList, image_np_array)
     #st.info(f"### The uploaded image is probably {predicted_labels}.")
     #st.info(f"### The uploaded image is Probably {predicted_labels['label']} with a model confidence: {round(((1-float(predicted_labels['percentage']))*100),2)} %.")
-    st.info(f"### The model is {round(((1-float(predicted_labels['percentage']))*100),2)}% sure that the image is {predicted_labels['label']}")
-    st.info(f"### The model is {float(predicted_labels['percentage'])}% sure that the image is {predicted_labels['label']}")
-    st.info(f"### (Decimal/0.5)*100 for deepfake {((float(predicted_labels['percentage'])/0.5)*100)}")
-    st.info(f"### (decimal-0.5/0.5)*100 for real {((float(predicted_labels['percentage'])-1)*100)}")
+    st.info(f"### The model is {predicted_labels['percentage']}% sure that the image is {predicted_labels['label']}")
+    #st.info(f"### The model is {float(predicted_labels['percentage'])}% sure that the image is {predicted_labels['label']}")
+    #st.info(f"### (Decimal/0.5)*100 for deepfake {((float(predicted_labels['percentage'])/0.5)*100)}")
+    #st.info(f"### (decimal-0.5/0.5)*100 for real {((float(predicted_labels['percentage'])-1)*100)}")
