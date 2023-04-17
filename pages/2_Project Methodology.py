@@ -63,6 +63,8 @@ The original dataset had 10K real images and 5K deepfake images. To maintain the
 **Some augmented real images:**
 
 **![](https://lh4.googleusercontent.com/9HyzBzAa0aEJWkfVIsKUGMd2vVNoHUgBFrcsJ3-r8CI6exL1qvp1gaMj-51gjyD0YWRrUHqosTlblSxSFKggQNJUqvc4K3JYvt27LjZRh1UqWMpgqDsdvRirniMFf5O_vY8hC4ZY8nc)**
+
+
 **Some augmented deepfake images:**
 
 **![](https://lh5.googleusercontent.com/Rsf0DRWiBMQGsXY3eipvgnG2wgZ3lF1zr5NHgNDSMByBddOIKj8ZMI5EsqVKJ4-uKe9sqWZtwoEMlisY4ElHwMAI2MPj2J6trTv69x71MoaqtIRTER-_9vvCsPopGjeOLqB_Kt6K4fw)**
