@@ -2,9 +2,9 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 PAGE_IMAGE_STYLE=f"""<style>
-p > strong > img {
+p > strong > img {{
     width: 700px;
-}
+}}
 </style>
     """
 
