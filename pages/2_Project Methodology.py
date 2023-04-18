@@ -1,6 +1,13 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
+PAGE_IMAGE_STYLE=f"""<style>
+p > strong > img {
+    width: 700px;
+}
+</style>
+    """
+
 PAGE_HEADER_TEXT="""
 # Project Methodology
 The project was divided into six tasks which were completed sequentially, one after the other, in order to finish the project.
@@ -169,6 +176,7 @@ PAGE_DIAGRAM_TEXT=f"""
         </script>
         """
 
+st.markdown(PAGE_IMAGE_STYLE, unsafe_allow_html=True)
 st.markdown(PAGE_HEADER_TEXT, unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
 components.html(PAGE_DIAGRAM_TEXT)
