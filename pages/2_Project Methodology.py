@@ -1,6 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
-
+import Base64_Image_utils
 
 PAGE_HEADER_TEXT="""
 # Project Methodology
