@@ -54,7 +54,7 @@ The goal of this project is to develop a deep learning model for detecting forge
 HOMEPAGE_CHAPTERLEAD='''
 | Chapter Name | Lead Name |
 |--|--|
-| Münich, Germany Chapter Leads | Imane |
+| Münich, Germany Chapter Leads | Imane El Maakoul |
 '''
 
 HOMEPAGE_ACTIVE_MEMBERS='''
