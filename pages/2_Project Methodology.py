@@ -47,7 +47,7 @@ A detailed description of the obtained images is given below:
  | StyleGAN | 1000 | 1024 × 1024 | Images generated using FFHQ as the input dataset | 
  | StyleGAN2 | 1000 | 1024 × 1024 | Images generated using FFHQ as the input dataset | 
 
-![](../img/task_summary.png “Task Summary”)
+![Task Summary](../img/task_summary.png)
 
 
 # Data Preprocessing
