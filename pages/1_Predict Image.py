@@ -11,7 +11,7 @@ from keras_cv_attention_models import convnext
 from keras_cv_attention_models import mobilenetv3
 
 #images_to_predict=[]
-ModelLabelList=[]
+#ModelLabelList=[]
 
 MODEL_PATH = './modelfile/model.h5'
 LABELS_PATH = './modelfile/model_label.txt'
