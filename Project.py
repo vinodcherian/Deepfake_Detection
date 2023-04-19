@@ -73,7 +73,7 @@ with st.container():
     with col1:
         st.image('https://omdena.com/wp-content/uploads/2023/02/Munich-Germany-Chapter.png', width=300)
     with col2:
-        st.markdown(HEADER_STYLE, unsafe_allow_html=True)
+        #st.markdown(HEADER_STYLE, unsafe_allow_html=True)
         st.title('Detecting Deepfakes in Germany through Images')
 with st.container():
     st.markdown("<br>", unsafe_allow_html=True)
@@ -82,3 +82,5 @@ with st.container():
     st.markdown(HOMEPAGE_CHAPTERLEAD, unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(HOMEPAGE_ACTIVE_MEMBERS, unsafe_allow_html=True)
+    
+st.markdown(HEADER_STYLE, unsafe_allow_html=True)
