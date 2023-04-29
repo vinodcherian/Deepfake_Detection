@@ -110,8 +110,7 @@ HEADER_STYLE=f"""<style>
         </style>
     """
 
-model = get_model(os.path.abspath(MODEL_PATH))
-ModelLabelList= load_labels()
+
 with st.container():
     col1, col2 = st.columns([1,2], gap="small")
     with col1:
@@ -119,6 +118,10 @@ with st.container():
     with col2:
         #st.markdown(HEADER_STYLE, unsafe_allow_html=True)
         st.title('Detecting Deepfakes in Germany through Images')
+
+model = get_model(os.path.abspath(MODEL_PATH))
+ModelLabelList= load_labels()
+
 with st.container():
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(HEADER_STYLE, unsafe_allow_html=True) 
