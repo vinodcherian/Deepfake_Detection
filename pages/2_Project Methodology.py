@@ -171,32 +171,67 @@ PAGE_DIAGRAM_TEXT=f"""
         </script>
         """
 
-HEADER_STYLE="""<style>
-	    [data-testid="stToolbar"]{
+HEADER_STYLE=f"""<style>
+	    [data-testid="stToolbar"]{{
 	    visibility: hidden;
 	    top: -50px;
-	    }
- """
+	    }}
+            [data-testid="stImage"]{{
+            height: 300px;
+            width: 300px;
+            }}
+            [data-testid="stImage"] > img{{
+            height: 300px;
+            width: 300px;
+            padding-top: 40%;
+            padding-bottom: 10%;
+            padding-left: 15%;
+            padding-right: 10%;
+            }}
+            #root > div:nth-child(1) > div > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(1) > div{{
+            background-image: url("https://omdena.com/wp-content/uploads/2023/02/Deepfakes-detection-480x400.png");
+            background-size: cover; 
+            background-position: center;
+            }}
+            #detecting-deepfakes-in-germany-through-images{{
+            height: 250px;
+            }}
+            #detecting-deepfakes-in-germany-through-images > div {{
+            bottom: 1%;
+            position: absolute;
+            color: white;
+            }}
+        </style>
+    """
 
-st.markdown(HEADER_STYLE, unsafe_allow_html=True)
-st.markdown(PAGE_HEADER_TEXT, unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
-components.html(PAGE_DIAGRAM_TEXT)
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown(PAGE_DATA_COLLECTION_HEADER_TEXT, unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown(PAGE_DATA_PREPROCESSING_TEXT, unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown(PAGE_REAL_IMAGE_TEXT, unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
-st.image(get_collage_real_image(),width=900)
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown(PAGE_DEEPFAKE_IMAGE_TEXT, unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
-st.image(get_collage_deepfake_image(),width=900)
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown(PAGE_FEATURE_EXTRACTION_TEXT, unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown(PAGE_FINAL_MODEL_EVALUATION_MATRIX_TEXT, unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
-st.image(get_annotated_confusion_matrix())
+with st.container():
+    col1, col2 = st.columns([1,2], gap="small")
+    with col1:
+        st.image('https://omdena.com/wp-content/uploads/2023/02/Munich-Germany-Chapter.png', width=300)
+    with col2:
+        #st.markdown(HEADER_STYLE, unsafe_allow_html=True)
+        st.title('Detecting Deepfakes in Germany through Images')
+with st.container():
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown(HEADER_STYLE, unsafe_allow_html=True) 
+    st.markdown(PAGE_HEADER_TEXT, unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    components.html(PAGE_DIAGRAM_TEXT)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown(PAGE_DATA_COLLECTION_HEADER_TEXT, unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown(PAGE_DATA_PREPROCESSING_TEXT, unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown(PAGE_REAL_IMAGE_TEXT, unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.image(get_collage_real_image(),width=900)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown(PAGE_DEEPFAKE_IMAGE_TEXT, unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.image(get_collage_deepfake_image(),width=900)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown(PAGE_FEATURE_EXTRACTION_TEXT, unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown(PAGE_FINAL_MODEL_EVALUATION_MATRIX_TEXT, unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.image(get_annotated_confusion_matrix())
