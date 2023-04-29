@@ -2,5 +2,4 @@ streamlit
 opencv-python-headless
 tensorflow
 keras-cv-attention-models
-graphviz
 pygraphviz
