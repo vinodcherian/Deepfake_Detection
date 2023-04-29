@@ -62,17 +62,17 @@ Proper care was taken to not augment images to an extent such that it degrades t
 The original dataset had 10K real images and 5K deepfake images. To maintain the balance between the classes, we decided to augment 30K real images and 30K deepfake images. Dataset was split according to the following ratio - 80% for train, 10% for validation and 10% for the test set. Due care was given to balance each of these datasets, hence out of 24K train images, we had 12K real and 12K deepfake images. Similar approach was used for both validation and test set. We decided to work in two teams, one team would augment the images with albumentations library and the other team would work with keras library. Within each team, the work was further divided such that each person worked on utmost 2 folders and everyone used their own augmentation pipeline thereby increasing the variation in the augmented images. Each team generated a total of 60K images, thus at the end of pre-processing, we had a total of 120K images, divided as two separate sets with an aim to train our model on both the sets to improve its generalizability.
 """
 
-PAGE_REAL_IMAGE_TEXT=f"""
+PAGE_REAL_IMAGE_TEXT="""
 **Some augmented real images:**
 
 """
 
-PAGE_DEEPFAKE_IMAGE_TEXT=f"""
+PAGE_DEEPFAKE_IMAGE_TEXT="""
 **Some augmented deepfake images:**
 
 """
 
-PAGE_FEATURE_EXTRACTION_TEXT=f"""
+PAGE_FEATURE_EXTRACTION_TEXT="""
 # Feature Extraction
 
 In this Project we performed the Feature Extraction on the data pre-processed Images to extract the relevant features for training of the model. We applied many process and extraction kernels and filters like blur, gray-scale, contrast, etc.
@@ -139,7 +139,7 @@ After completion of the model training, we conducted validation and testing of t
 |Real||0.63|0.82|0.71||
 """
 
-PAGE_FINAL_MODEL_EVALUATION_MATRIX_TEXT=f"""
+PAGE_FINAL_MODEL_EVALUATION_MATRIX_TEXT="""
 ### Final Model Evaluation Matrix
 
 -   Based on the table above, MobileNetV3 was chosen to be deployed.
@@ -154,7 +154,7 @@ PAGE_FINAL_MODEL_EVALUATION_MATRIX_TEXT=f"""
 In the given test dataset, there were 5000 deepfake images and 2000 real images. The model predicted 4048 deepfakes and 1632 real images correctly. I.e 5680 images out of 7000 images were correctly predicted by our final model.
 """
 
-PAGE_DIAGRAM_TEXT=f"""
+PAGE_DIAGRAM_TEXT="""
         <pre class="mermaid">
              graph LR
         A(Data Collection) --> B[Data Preprocessing]
@@ -167,71 +167,37 @@ PAGE_DIAGRAM_TEXT=f"""
 
         <script type="module">
             import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-            mermaid.initialize({{ startOnLoad: true }});
+            mermaid.initialize({ startOnLoad: true });
         </script>
         """
 
-HEADER_STYLE=f"""<style>
-	    [data-testid="stToolbar"]{{
+HEADER_STYLE="""<style>
+	    [data-testid="stToolbar"]{
 	    visibility: hidden;
 	    top: -50px;
-	    }}
-            [data-testid="stImage"]{{
-            height: 300px;
-            width: 300px;
-            }}
-            [data-testid="stImage"] > img{{
-            height: 300px;
-            width: 300px;
-            padding-top: 40%;
-            padding-bottom: 10%;
-            padding-left: 15%;
-            padding-right: 10%;
-            }}
-            #root > div:nth-child(1) > div > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(1) > div{{
-            background-image: url("https://omdena.com/wp-content/uploads/2023/02/Deepfakes-detection-480x400.png");
-            background-size: cover; 
-            background-position: center;
-            }}
-            #detecting-deepfakes-in-germany-through-images{{
-            height: 250px;
-            }}
-            #detecting-deepfakes-in-germany-through-images > div {{
-            bottom: 1%;
-            position: absolute;
-            color: white;
-            }}
+	    }
         </style>
     """
 
-with st.container():
-    col1, col2 = st.columns([1,2], gap="small")
-    with col1:
-        st.image('https://omdena.com/wp-content/uploads/2023/02/Munich-Germany-Chapter.png', width=300)
-    with col2:
-        #st.markdown(HEADER_STYLE, unsafe_allow_html=True)
-        st.title('Detecting Deepfakes in Germany through Images')
-with st.container():
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(HEADER_STYLE, unsafe_allow_html=True) 
-    st.markdown(PAGE_HEADER_TEXT, unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    components.html(PAGE_DIAGRAM_TEXT)
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(PAGE_DATA_COLLECTION_HEADER_TEXT, unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(PAGE_DATA_PREPROCESSING_TEXT, unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(PAGE_REAL_IMAGE_TEXT, unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.image(get_collage_real_image(),width=900)
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(PAGE_DEEPFAKE_IMAGE_TEXT, unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.image(get_collage_deepfake_image(),width=900)
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(PAGE_FEATURE_EXTRACTION_TEXT, unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(PAGE_FINAL_MODEL_EVALUATION_MATRIX_TEXT, unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.image(get_annotated_confusion_matrix())
+st.markdown(HEADER_STYLE, unsafe_allow_html=True) 
+st.markdown(PAGE_HEADER_TEXT, unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
+components.html(PAGE_DIAGRAM_TEXT)
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown(PAGE_DATA_COLLECTION_HEADER_TEXT, unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown(PAGE_DATA_PREPROCESSING_TEXT, unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown(PAGE_REAL_IMAGE_TEXT, unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
+st.image(get_collage_real_image(),width=900)
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown(PAGE_DEEPFAKE_IMAGE_TEXT, unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
+st.image(get_collage_deepfake_image(),width=900)
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown(PAGE_FEATURE_EXTRACTION_TEXT, unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown(PAGE_FINAL_MODEL_EVALUATION_MATRIX_TEXT, unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
+st.image(get_annotated_confusion_matrix())

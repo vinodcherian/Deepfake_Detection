@@ -77,67 +77,32 @@ def get_model(path):
     model.compile()
     return model
 
-HEADER_STYLE=f"""<style>
-	    [data-testid="stToolbar"]{{
+HEADER_STYLE="""<style>
+	    [data-testid="stToolbar"]{
 	    visibility: hidden;
 	    top: -50px;
-	    }}
-            [data-testid="stImage"]{{
-            height: 300px;
-            width: 300px;
-            }}
-            [data-testid="stImage"] > img{{
-            height: 300px;
-            width: 300px;
-            padding-top: 40%;
-            padding-bottom: 10%;
-            padding-left: 15%;
-            padding-right: 10%;
-            }}
-            #root > div:nth-child(1) > div > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(1) > div{{
-            background-image: url("https://omdena.com/wp-content/uploads/2023/02/Deepfakes-detection-480x400.png");
-            background-size: cover; 
-            background-position: center;
-            }}
-            #detecting-deepfakes-in-germany-through-images{{
-            height: 250px;
-            }}
-            #detecting-deepfakes-in-germany-through-images > div {{
-            bottom: 1%;
-            position: absolute;
-            color: white;
-            }}
+	    }
         </style>
     """
 
 
-with st.container():
-    col1, col2 = st.columns([1,2], gap="small")
-    with col1:
-        st.image('https://omdena.com/wp-content/uploads/2023/02/Munich-Germany-Chapter.png', width=300)
-    with col2:
-        #st.markdown(HEADER_STYLE, unsafe_allow_html=True)
-        st.title('Detecting Deepfakes in Germany through Images')
 
 model = get_model(os.path.abspath(MODEL_PATH))
 ModelLabelList= load_labels()
-
-with st.container():
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(HEADER_STYLE, unsafe_allow_html=True) 
-    st.title(f"Upload a color image to detect if its fake or real")
-    image_file = st.file_uploader("", type=ALLOWED_EXTENSIONS)
-    st.set_option('deprecation.showfileUploaderEncoding', False)
-    st.warning(WARNING_MESSAGE, icon="⚠️")
-    if image_file is not None:
-        imageobj=Image.open(image_file)
-        st.image(imageobj)
-        img_arr = np.array(imageobj) 
-        image_np_array =imagepreprocessing(img_arr)
-        predicted_labels = modelpredict(model, ModelLabelList, image_np_array)
-        #st.info(f"### The uploaded image is probably {predicted_labels}.")
-        #st.info(f"### The uploaded image is Probably {predicted_labels['label']} with a model confidence: {round(((1-float(predicted_labels['percentage']))*100),2)} %.")
-        st.info(f"### The model is {predicted_labels['percentage']}% sure that the image is {predicted_labels['label']}")
-        #st.info(f"### The model is {float(predicted_labels['percentage'])}% sure that the image is {predicted_labels['label']}")
-        #st.info(f"### (Decimal/0.5)*100 for deepfake {((float(predicted_labels['percentage'])/0.5)*100)}")
-        #st.info(f"### (decimal-0.5/0.5)*100 for real {((float(predicted_labels['percentage'])-1)*100)}")
+st.markdown(HEADER_STYLE, unsafe_allow_html=True) 
+st.title(f"Upload a color image to detect if its fake or real")
+image_file = st.file_uploader("", type=ALLOWED_EXTENSIONS)
+st.set_option('deprecation.showfileUploaderEncoding', False)
+st.warning(WARNING_MESSAGE, icon="⚠️")
+if image_file is not None:
+    imageobj=Image.open(image_file)
+    st.image(imageobj)
+    img_arr = np.array(imageobj) 
+    image_np_array =imagepreprocessing(img_arr)
+    predicted_labels = modelpredict(model, ModelLabelList, image_np_array)
+    #st.info(f"### The uploaded image is probably {predicted_labels}.")
+    #st.info(f"### The uploaded image is Probably {predicted_labels['label']} with a model confidence: {round(((1-float(predicted_labels['percentage']))*100),2)} %.")
+    st.info(f"### The model is {predicted_labels['percentage']}% sure that the image is {predicted_labels['label']}")
+    #st.info(f"### The model is {float(predicted_labels['percentage'])}% sure that the image is {predicted_labels['label']}")
+    #st.info(f"### (Decimal/0.5)*100 for deepfake {((float(predicted_labels['percentage'])/0.5)*100)}")
+    #st.info(f"### (decimal-0.5/0.5)*100 for real {((float(predicted_labels['percentage'])-1)*100)}")
