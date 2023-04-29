@@ -1,6 +1,8 @@
 import streamlit as st
 import streamlit.components.v1 as components
-from Base64_Image_utils import get_task_summary_image,get_annotated_confusion_matrix,get_collage_real_image,get_collage_deepfake_image
+import graphviz
+
+from Base64_Image_utils import get_annotated_confusion_matrix,get_collage_real_image,get_collage_deepfake_image
 
 PAGE_HEADER_TEXT="""
 # Project Methodology
@@ -154,30 +156,40 @@ PAGE_FINAL_MODEL_EVALUATION_MATRIX_TEXT=f"""
 In the given test dataset, there were 5000 deepfake images and 2000 real images. The model predicted 4048 deepfakes and 1632 real images correctly. I.e 5680 images out of 7000 images were correctly predicted by our final model.
 """
 
-PAGE_DIAGRAM_TEXT=f"""
-        <pre class="mermaid">
-             graph LR
-        A(Data Collection) --> B[Data Preprocessing]
-        B --> C(Feature Extraction)
-        C --> D
-        B --> D(Model Training)
-        D --> E(Model Validation and Testing)
-        E --> F(Model Deployment)
-        </pre>
+#PAGE_DIAGRAM_TEXT=f"""
+#        <pre class="mermaid">
+#             graph LR
+#        A(Data Collection) --> B[Data Preprocessing]
+#        B --> C(Feature Extraction)
+#        C --> D
+#        B --> D(Model Training)
+#        D --> E(Model Validation and Testing)
+#        E --> F(Model Deployment)
+#        </pre>
+#
+#        <script type="module">
+#            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+#            mermaid.initialize({{ startOnLoad: true }});
+#        </script>
+#        """
 
-        <script type="module">
-            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-            mermaid.initialize({{ startOnLoad: true }});
-        </script>
-        """
+PAGE_DIAGRAM_TEXT='''
+    digraph {
+        A(Data Collection) -> B[Data Preprocessing]
+        B -> C(Feature Extraction)
+        C -> D
+        B -> D(Model Training)
+        D -> E(Model Validation and Testing)
+        E -> F(Model Deployment)
+    }
+'''
 
 st.markdown(PAGE_HEADER_TEXT, unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
-components.html(PAGE_DIAGRAM_TEXT)
+#components.html(PAGE_DIAGRAM_TEXT)
+st.graphviz_chart(PAGE_DIAGRAM_TEXT)
 st.markdown("<br>", unsafe_allow_html=True)
 st.markdown(PAGE_DATA_COLLECTION_HEADER_TEXT, unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
-st.image(get_task_summary_image(),width=900)
 st.markdown("<br>", unsafe_allow_html=True)
 st.markdown(PAGE_DATA_PREPROCESSING_TEXT, unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
