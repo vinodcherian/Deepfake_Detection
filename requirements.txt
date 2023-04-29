@@ -2,6 +2,3 @@ streamlit
 opencv-python-headless
 tensorflow
 keras-cv-attention-models
-streamlit_tags
-streamlit_agraph
-pygraphviz
