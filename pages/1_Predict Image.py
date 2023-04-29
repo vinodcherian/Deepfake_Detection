@@ -10,9 +10,6 @@ import glob, cv2
 from keras_cv_attention_models import convnext
 from keras_cv_attention_models import mobilenetv3
 
-#images_to_predict=[]
-#ModelLabelList=[]
-
 MODEL_PATH = './modelfile/model.h5'
 LABELS_PATH = './modelfile/model_label.txt'
 ALLOWED_EXTENSIONS = ["jpg","png"]
@@ -80,7 +77,14 @@ def get_model(path):
     model.compile()
     return model
 
+HEADER_STYLE="""<style>
+	    [data-testid="stToolbar"]{
+	    visibility: hidden;
+	    top: -50px;
+	    }
+ """
 
+st.markdown(HEADER_STYLE, unsafe_allow_html=True) 
 model = get_model(os.path.abspath(MODEL_PATH))
 ModelLabelList= load_labels()
 st.title(f"Upload a color image to detect if its fake or real")
