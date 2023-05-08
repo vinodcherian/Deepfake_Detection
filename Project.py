@@ -99,7 +99,7 @@ HOMEPAGE_ACTIVE_MEMBERS='''
 | Feature Extraction | Vishu Kalier, Imane El Maakoul, Mussie Berhane, Abdelrahman Youssry, Reem Abdel-Salam, Parnika Damle, Qutaiba Ahmed Ansari, Akash Kundu, Abdul Rahman, Rishabh Sabharwal |
 | Model Training | Vishu Kalier, Imane El Maakoul, Mussie Berhane, Abdelrahman Youssry, Reem Abdel-Salam, Parnika Damle, Qutaiba Ahmed Ansari, Akash Kundu, Abdul Rahman, Rishabh Sabharwal |
 | Model Testing and Validation | Akash Kundu, Reem Abdel-Salam, Parnika Damle, Abdelrahman Youssry, Qutaiba Ahmed Ansari |
-| Model Deployment | Vinod, Akash Kundu, Abdelrahman Youssry |
+| Model Deployment | Vinod Cherian, Akash Kundu, Abdelrahman Youssry |
 '''
 
 DATA_SOURCE_CONTENT='''
