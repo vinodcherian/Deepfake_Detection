@@ -27,13 +27,11 @@ def page_header():
 	    visibility: hidden;
 	    top: -50px;
 	    }}
-            #root > div:nth-child(1) > div > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(1) > div > div > div > div:nth-child(1) > div > div > div > div > div
-            {{
+            [data-testid="stImage"]{{
             height: 300px;
             width: 300px;
             }}
-            #root > div:nth-child(1) > div > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(1) > div > div > div > div:nth-child(1) > div > div > div > div > div > img
-            {{
+            [data-testid="stImage"] > img{{
             height: 300px;
             width: 300px;
             padding-top: 40%;
@@ -46,27 +44,13 @@ def page_header():
             background-size: cover; 
             background-position: center;
             }}
-            #{get_page_title_id()}{{
+            #detecting-deepfakes-in-germany-through-images{{
             height: 250px;
             }}
-            #{get_page_title_id()} > div {{
+            #detecting-deepfakes-in-germany-through-images > div {{
             bottom: 1%;
             position: absolute;
             color: white;
-            }}
-            footer {{
-            visibility: hidden;
-            position: relative;
-            }}
-            footer:before {{
-            visibility: visible;
-            position: relative;
-	    content: {FOOTER_TEXT}
-            }}
-            button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] > p {{
-            font-size: 24px;
-            padding: 0px 20px;
-            background-color: rgb(240, 242, 246);
             }}
         </style>
     """
