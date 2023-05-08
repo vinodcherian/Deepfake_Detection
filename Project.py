@@ -143,8 +143,8 @@ def set_page_settings():
 )
 
 def main():
+    set_page_settings()	
     page_header()
-    set_page_settings()
     project_tab, team_tab, data_source = st.tabs(["  **About Project** ", "  **Active Team Contributors**  ","  **Data Sources** "])
     st.markdown()
     with project_tab:
