@@ -17,6 +17,12 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+def get_page_title_id():
+  s = re.sub(r"[^\w\s]", '', PAGE_TITLE)
+  s = re.sub(r'\[\[(?:[^\]|]*\|)?([^\]|]*)\]\]', r'\1', s)
+  s = re.sub(r"\s+", '-', s)
+  return s.lower()
+
 HEADER_STYLE=f"""<style>
 	    [data-testid="stToolbar"]{{
 	    visibility: hidden;
@@ -39,10 +45,10 @@ HEADER_STYLE=f"""<style>
             background-size: cover; 
             background-position: center;
             }}
-            #detecting-deepfakes-in-germany-through-images{{
+            #{get_page_title_id()}{{
             height: 250px;
             }}
-            #detecting-deepfakes-in-germany-through-images > div {{
+            #{get_page_title_id()} > div {{
             bottom: 1%;
             position: absolute;
             color: white;
