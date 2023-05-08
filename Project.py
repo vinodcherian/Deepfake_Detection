@@ -73,7 +73,7 @@ def page_header():
     
     st.markdown(HEADER_STYLE, unsafe_allow_html=True)
     with st.container():
-         left_side, right_side = st.columns([1,2], gap="small")
+        left_side, right_side = st.columns([1,2], gap="small")
         with left_side:
             st.image(PROFILE_IMAGE, width=300)
         with right_side:
