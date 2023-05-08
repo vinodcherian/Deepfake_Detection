@@ -42,7 +42,7 @@ def page_header():
             padding-right: 10%;
             }}
             #root > div:nth-child(1) > div > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(1) > div{{
-            background-image: url("{BACKGROUND_IMAGE}");
+            background-image: url("https://omdena.com/wp-content/uploads/2023/02/Deepfakes-detection-480x400.png");
             background-size: cover; 
             background-position: center;
             }}
