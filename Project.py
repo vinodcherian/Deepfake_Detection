@@ -1,5 +1,14 @@
 import streamlit as st
+from datetime import date
 
+PROFILE_IMAGE="https://omdena.com/wp-content/uploads/2023/02/Munich-Germany-Chapter.png"
+
+
+BACKGROUND_IMAGE="https://omdena.com/wp-content/uploads/2023/02/Deepfakes-detection-480x400.png"
+
+PAGE_TITLE="Detecting Deepfakes in Germany through Images"
+
+FOOTER_TEXT=f"Project by Omdena Münich, Germany Chapter - {date.today().year}"
 
 st.set_page_config(
     page_title="Deepfakes Detection in Munich Chapter",
@@ -26,7 +35,7 @@ HEADER_STYLE=f"""<style>
             padding-right: 10%;
             }}
             #root > div:nth-child(1) > div > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(1) > div{{
-            background-image: url("https://omdena.com/wp-content/uploads/2023/02/Deepfakes-detection-480x400.png");
+            background-image: url("{BACKGROUND_IMAGE}");
             background-size: cover; 
             background-position: center;
             }}
@@ -37,6 +46,15 @@ HEADER_STYLE=f"""<style>
             bottom: 1%;
             position: absolute;
             color: white;
+            }}
+	    footer {{
+            visibility: hidden;
+            position: relative;
+            }}
+            footer:before {{
+            visibility: visible;
+            position: relative;
+	    content: {FOOTER_TEXT}
             }}
         </style>
     """
@@ -75,10 +93,10 @@ HOMEPAGE_ACTIVE_MEMBERS='''
 with st.container():
     col1, col2 = st.columns([1,2], gap="small")
     with col1:
-        st.image('https://omdena.com/wp-content/uploads/2023/02/Munich-Germany-Chapter.png', width=300)
+        st.image(PROFILE_IMAGE, width=300)
     with col2:
         st.markdown(HEADER_STYLE, unsafe_allow_html=True)
-        st.title('Detecting Deepfakes in Germany through Images')
+        st.title(PAGE_TITLE)
 with st.container():
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(HOMEPAGE_CONTENT, unsafe_allow_html=True)
