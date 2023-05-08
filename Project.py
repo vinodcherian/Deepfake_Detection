@@ -47,16 +47,17 @@ HEADER_STYLE=f"""<style>
             position: absolute;
             color: white;
             }}
-	    footer {{
-            visibility: hidden;
-            position: relative;
-            }}
+
             footer:before {{
             visibility: visible;
             position: relative;
 	    content: {FOOTER_TEXT}
             }}
-	    
+	    button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] > p {{
+            font-size: 24px;
+            padding: 0px 20px;
+            background-color: rgb(240, 242, 246);
+            }}
         </style>
     """
 
