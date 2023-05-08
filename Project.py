@@ -42,7 +42,7 @@ def page_header():
             padding-right: 10%;
             }}
             #root > div:nth-child(1) > div > div > div > div > section > div > div:nth-child(1) > div > div:nth-child(1) > div{{
-            background-image: url({BACKGROUND_IMAGE});
+            background-image: url("{BACKGROUND_IMAGE}");
             background-size: cover; 
             background-position: center;
             }}
