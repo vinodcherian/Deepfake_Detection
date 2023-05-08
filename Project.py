@@ -115,11 +115,10 @@ def active_contributors():
 | Model Testing and Validation | Akash Kundu, Reem Abdel-Salam, Parnika Damle, Abdelrahman Youssry, Qutaiba Ahmed Ansari |
 | Model Deployment | Vinod, Akash Kundu, Abdelrahman Youssry |
 '''
-
-  with st.container():
-    st.markdown(HOMEPAGE_CHAPTERLEAD)
-    st.markdown("")
-    st.markdown(HOMEPAGE_ACTIVE_MEMBERS)
+	with st.container():
+		st.markdown(HOMEPAGE_CHAPTERLEAD)
+		st.markdown("")
+		st.markdown(HOMEPAGE_ACTIVE_MEMBERS)
     
 
 def data_source_information():
