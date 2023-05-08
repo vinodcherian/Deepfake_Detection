@@ -11,7 +11,7 @@ PAGE_TITLE="Detecting Deepfakes in Germany through Images"
 FOOTER_TEXT=f"Project by Omdena Münich, Germany Chapter - {date.today().year}"
 
 st.set_page_config(
-    page_title="Deepfakes Detection in Munich Chapter",
+    page_title=PAGE_TITLE,
     page_icon="🧊",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -56,6 +56,7 @@ HEADER_STYLE=f"""<style>
             position: relative;
 	    content: {FOOTER_TEXT}
             }}
+	    
         </style>
     """
 
@@ -90,6 +91,15 @@ HOMEPAGE_ACTIVE_MEMBERS='''
 | Model Deployment | Vinod, Akash Kundu, Abdelrahman Youssry |
 '''
 
+DATA_SOURCE_CONTENT='''
+### Data Sources / References
+
+The model is trained with datasets produced from the following original data sources:
++ Guarnera, Luca, et al. "The Face Deepfake Detection Challenge." Journal of Imaging 8.10 (2022): 263.
++ Guarnera, Luca, Oliver Giudice, and Sebastiano Battiato. "Fighting deepfake by exposing the convolutional traces on images." IEEE Access 8 (2020): 165085-165098.
++ Giudice, Oliver, Luca Guarnera, and Sebastiano Battiato. "Fighting deepfakes by detecting gan dct anomalies." Journal of Imaging 7.8 (2021): 128.
+''' 
+
 with st.container():
     col1, col2 = st.columns([1,2], gap="small")
     with col1:
@@ -97,10 +107,15 @@ with st.container():
     with col2:
         st.markdown(HEADER_STYLE, unsafe_allow_html=True)
         st.title(PAGE_TITLE)
+    st.markdown("<br>", unsafe_allow_html=True)
 with st.container():
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(HOMEPAGE_CONTENT, unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(HOMEPAGE_CHAPTERLEAD, unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(HOMEPAGE_ACTIVE_MEMBERS, unsafe_allow_html=True)
+    project_tab, team_tab, data_source = st.tabs(["  **About Project** ", "  **Active Team Contributors**  ","  **Data Sources** "])
+    st.markdown("")
+    with project_tab:
+    	st.markdown(HOMEPAGE_CONTENT, unsafe_allow_html=True)
+    with team_tab:
+    	st.markdown(HOMEPAGE_CHAPTERLEAD, unsafe_allow_html=True)
+	st.markdown("<br>", unsafe_allow_html=True)
+    	st.markdown(HOMEPAGE_ACTIVE_MEMBERS, unsafe_allow_html=True)
+    with data_source:
+        st.markdown(DATA_SOURCE_CONTENT)
