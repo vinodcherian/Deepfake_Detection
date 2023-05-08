@@ -133,10 +133,18 @@ The model is trained with datasets produced from the following original data sou
 ''' 
     with st.container():
         st.markdown(DATA_SOURCE_CONTENT)
-            
+
+def set_page_settings():
+        st.set_page_config(
+        page_title=PAGE_TITLE,
+        page_icon="🧊",
+        layout="wide",
+        initial_sidebar_state="expanded", 
+)
+
 def main():
     page_header()
-    st.set_page_config(page_title="Deepfakes Detection in Munich Chapter", page_icon="🧊", layout="wide", initial_sidebar_state="expanded",)
+    set_page_settings()
     project_tab, team_tab, data_source = st.tabs(["  **About Project** ", "  **Active Team Contributors**  ","  **Data Sources** "])
     st.markdown()
     with project_tab:
