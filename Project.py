@@ -107,12 +107,12 @@ with st.container():
     with col2:
         st.markdown(HEADER_STYLE, unsafe_allow_html=True)
         st.title(PAGE_TITLE)
-    st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
 with st.container():
     project_tab, team_tab, data_source = st.tabs(["  **About Project** ", "  **Active Team Contributors**  ","  **Data Sources** "])
-    st.markdown("")
+    st.markdown("<br>", unsafe_allow_html=True)
     with project_tab:
-    	st.markdown(HOMEPAGE_CONTENT, unsafe_allow_html=True)
+	st.markdown(HOMEPAGE_CONTENT, unsafe_allow_html=True)
     with team_tab:
     	st.markdown(HOMEPAGE_CHAPTERLEAD, unsafe_allow_html=True)
 	st.markdown("<br>", unsafe_allow_html=True)
